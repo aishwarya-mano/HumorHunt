@@ -17,13 +17,13 @@ def create_index():
 
 def index_quotes_from_csv():
     quotes_df = read_csv_file(
-        '/Users/aishwarya/Downloads/quotes_funny.csv')  # Update this path
+        '')  # Update this path
     for id, row in quotes_df.iterrows():
         quote = {
             "author": row['author'],
             "quote": row['quote']
         }
-        # print(quote)
+       
         es.index(index='quotes1', id=id, document=quote)
 
 
